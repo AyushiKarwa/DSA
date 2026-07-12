@@ -10,6 +10,7 @@ public:
                 mini=min(mini,right-left+1);
                 sum=sum-nums[left];
                 left++;
+                
             }
         }
         if(mini==INT_MAX) return 0;
