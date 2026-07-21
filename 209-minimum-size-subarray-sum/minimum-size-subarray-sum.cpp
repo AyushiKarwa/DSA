@@ -5,15 +5,16 @@ public:
         int sum=0;
         int mini=INT_MAX;
         for(int right=0;right<nums.size();right++){
+            
             sum+=nums[right];
             while(sum>=target){
                 mini=min(mini,right-left+1);
                 sum=sum-nums[left];
                 left++;
-                
             }
-        }
-        if(mini==INT_MAX) return 0;
+        
+        }    
+        if (mini==INT_MAX) return 0;
         return mini;
     }
 };
