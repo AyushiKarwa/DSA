@@ -2,19 +2,20 @@ class Solution {
 public:
     string reverseWords(string s) {
         stack<string> st;
-        string word,ans;
+        string ans,word;
 
         stringstream ss(s);
-        while(ss>>word){
+        while(ss >> word){
             st.push(word);
         }
-
-        while(!st.empty()){
-            ans+=st.top()+" ";
-            st.pop();
+        int sss=st.size();
+        for(int i=0;i<sss;i++){
+            if(!st.empty()){
+                ans+=st.top()+ " ";
+                st.pop();
+            }
         }
         ans.pop_back();
         return ans;
-        
     }
 };
