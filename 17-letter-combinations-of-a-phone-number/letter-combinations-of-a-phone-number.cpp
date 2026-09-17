@@ -1,27 +1,23 @@
 class Solution {
 public:
+vector<string> ans;
 vector<string> mp={
     "","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"
 };
-vector<string> ans;
-    void solve(string &digits,int i,string curr){
+    void solve(string digits,int i,string temp){
+        
         if(i==digits.size()){
-            ans.push_back(curr);
+            ans.push_back(temp);
             return;
         }
-        string letters=mp[digits[i]-'0'];
-        for(char ch:letters){
-            curr.push_back(ch);
-            solve(digits,i+1,curr);
-            curr.pop_back();
+        string cur=mp[digits[i]-'0'];
+        for(auto x:cur){
+            temp.push_back(x);
+            solve(digits,i+1,temp);
+            temp.pop_back();
         }
-
     }
     vector<string> letterCombinations(string digits) {
-       
-        if(digits.empty()){
-            return ans;
-        }
         solve(digits,0,"");
         return ans;
     }
